@@ -1,4 +1,4 @@
-import { Container, Box, SimpleGrid, Title, Text, Avatar, Group, Rating } from '@mantine/core';
+import { Container, Box, SimpleGrid, Text, Avatar, Group, Rating } from '@mantine/core';
 import { SectionHeader } from '@/components/ui/SectionHeader/SectionHeader';
 import { AnimatedSection } from '@/components/ui/AnimatedSection/AnimatedSection';
 import { testimonials } from '@/lib/data/testimonials';

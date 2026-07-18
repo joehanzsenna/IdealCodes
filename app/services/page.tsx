@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Container, Box, Title, Text, SimpleGrid } from '@mantine/core';
 import { ServiceCard } from '@/components/ui/ServiceCard/ServiceCard';
 import { CTABanner } from '@/components/sections/CTABanner/CTABanner';
-import { SectionHeader } from '@/components/ui/SectionHeader/SectionHeader';
 import { AnimatedSection } from '@/components/ui/AnimatedSection/AnimatedSection';
 import { services } from '@/lib/data/services';
 import classes from './services.module.css';

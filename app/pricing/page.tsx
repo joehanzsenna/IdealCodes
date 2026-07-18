@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Container, Box, Title, Text, SimpleGrid, Badge, Button, List, ListItem, Group } from '@mantine/core';
+import { Container, Box, Title, Text, SimpleGrid, Badge, Button, List, ListItem } from '@mantine/core';
 import Link from 'next/link';
 import { IconCheck } from '@tabler/icons-react';
 import { CTABanner } from '@/components/sections/CTABanner/CTABanner';

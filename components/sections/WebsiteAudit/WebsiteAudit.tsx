@@ -1,4 +1,4 @@
-import { Container, Box, Title, Text, Button, SimpleGrid, Group } from '@mantine/core';
+import { Container, Box, Title, Text, Button, SimpleGrid } from '@mantine/core';
 import Link from 'next/link';
 import { IconCheck, IconArrowRight } from '@tabler/icons-react';
 import { AnimatedSection } from '@/components/ui/AnimatedSection/AnimatedSection';
