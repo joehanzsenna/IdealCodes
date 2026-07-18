@@ -1,0 +1,34 @@
+.section {
+  padding: 6rem 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.item {
+  background: var(--page-bg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  margin-bottom: 0.5rem;
+  transition: border-color 0.2s;
+}
+
+.item[data-active] {
+  border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+.control {
+  padding: 1rem 1.25rem;
+}
+
+.label {
+  padding: 0;
+}
+
+.question {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.panel {
+  padding: 0 1.25rem 1.25rem;
+}

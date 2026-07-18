@@ -1,0 +1,40 @@
+.section {
+  padding: 6rem 0;
+  background: var(--page-bg);
+}
+
+.step {
+  padding: 1.75rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  height: 100%;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.step:hover {
+  border-color: var(--mantine-color-brand-6);
+  transform: translateY(-4px);
+}
+
+.number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--mantine-color-brand-6);
+  opacity: 0.25;
+  margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.stepTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.stepDesc {
+  line-height: 1.65;
+  color: var(--text-muted);
+}

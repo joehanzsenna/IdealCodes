@@ -1,0 +1,47 @@
+.hero {
+  background: var(--page-bg);
+  padding: 8rem 0 4rem;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.launchBadge {
+  background: rgba(34, 211, 238, 0.1);
+  color: var(--mantine-color-cyan-4);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  font-size: 0.8rem;
+}
+.title { font-size: clamp(2rem, 5vw, 3rem); color: var(--text-primary); margin-bottom: 1rem; }
+.sub { max-width: 500px; margin: 0 auto; line-height: 1.7; }
+.section { padding: 5rem 0 6rem; background: var(--page-bg); }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  height: 100%;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.card:hover { border-color: rgba(37,99,235,0.3); transform: translateY(-4px); }
+.popular {
+  border-color: var(--mantine-color-brand-6) !important;
+  background: linear-gradient(135deg, var(--surface), rgba(37,99,235,0.04));
+}
+.popularBadge { background: rgba(37,99,235,0.12); color: var(--mantine-color-brand-5); border: 1px solid rgba(37,99,235,0.2); }
+.tierName { text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.75rem; }
+.price { font-size: 2.5rem; color: var(--text-primary); line-height: 1; margin-bottom: 0.25rem; }
+.tierDesc { line-height: 1.6; }
+.popularBtn { background: linear-gradient(135deg, #2563EB, #0EA5E9); border: none; }
+.outlineBtn { border-color: var(--border); color: var(--text-muted); }
+.featureList { padding-left: 0; }
+.feature { font-size: 0.875rem; color: var(--text-muted); }
+.checkWrap {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--mantine-color-brand-5); min-width: 20px;
+}
+.note {
+  max-width: 600px; margin: 3rem auto 0;
+  padding: 1.25rem; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--surface);
+}

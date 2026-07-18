@@ -1,0 +1,27 @@
+.wrapper {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 0;
+}
+
+.stat {
+  text-align: center;
+  padding: 1rem;
+}
+
+.value {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #2563EB, #22D3EE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.label {
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}

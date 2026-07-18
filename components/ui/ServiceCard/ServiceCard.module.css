@@ -1,0 +1,65 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  height: 100%;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--mantine-color-brand-6);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--glow-blue);
+}
+
+.highlight {
+  border-color: var(--mantine-color-cyan-4) !important;
+  background: linear-gradient(135deg, var(--surface), rgba(34, 211, 238, 0.04));
+}
+
+.badge {
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--mantine-color-cyan-4);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+}
+
+.iconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(14,165,233,0.1));
+  border: 1px solid var(--glow-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mantine-color-brand-5);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.desc {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.features {
+  padding-left: 0;
+  list-style: none;
+}
+
+.feature {
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+  padding: 2px 0;
+}

@@ -1,0 +1,32 @@
+.hero {
+  background: var(--page-bg);
+  padding: 8rem 0 4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mantine-color-cyan-4);
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  max-width: 720px;
+}
+
+.sub {
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.grid {
+  padding: 4rem 0 6rem;
+  background: var(--page-bg);
+}

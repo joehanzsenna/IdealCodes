@@ -1,0 +1,17 @@
+.hero {
+  background: var(--page-bg);
+  padding: 8rem 0 4rem;
+  border-bottom: 1px solid var(--border);
+}
+.eyebrow { display:inline-block; text-transform:uppercase; letter-spacing:0.1em; color:var(--mantine-color-cyan-4); margin-bottom:1rem; font-size:0.75rem; }
+.title { font-size: clamp(2rem, 5vw, 3rem); color: var(--text-primary); margin-bottom: 1rem; }
+.sub { max-width: 500px; line-height: 1.7; }
+.section { padding: 5rem 0 6rem; background: var(--page-bg); }
+.submitBtn { background: linear-gradient(135deg, #2563EB, #0EA5E9); border: none; font-weight: 600; }
+.contactCard { display:flex; gap:1rem; align-items:flex-start; padding:1.5rem; border-radius:12px; background:var(--surface); border:1px solid var(--border); }
+.contactIcon { width:44px; height:44px; min-width:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+.contactTitle { color:var(--text-primary); margin-bottom:0.25rem; }
+.contactLink { font-size:0.9rem; color:var(--mantine-color-cyan-4); text-decoration:none; font-weight:500; }
+.contactLink:hover { text-decoration:underline; }
+.promise { padding:1.5rem; border-radius:12px; background:linear-gradient(135deg,rgba(37,99,235,0.06),rgba(34,211,238,0.03)); border:1px solid rgba(37,99,235,0.15); }
+.promiseTitle { color:var(--text-primary); }

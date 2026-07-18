@@ -1,0 +1,16 @@
+.section {
+  padding: 6rem 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.allBtn {
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+.allBtn:hover {
+  border-color: var(--mantine-color-brand-6);
+  color: var(--mantine-color-brand-6);
+  background: var(--glow-blue);
+}

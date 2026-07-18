@@ -1,0 +1,128 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.scrolled {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: var(--border);
+  backdrop-filter: blur(12px);
+}
+
+[data-mantine-color-scheme='light'] .scrolled {
+  background: rgba(248, 250, 252, 0.90);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+
+.logoText {
+  color: var(--text-primary);
+}
+
+.logoAccent {
+  color: var(--mantine-color-cyan-4);
+}
+
+.desktopNav {
+  display: flex;
+}
+
+.navLink {
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+  background: var(--border);
+}
+
+.active {
+  color: var(--mantine-color-brand-6) !important;
+}
+
+.themeToggle {
+  color: var(--text-muted);
+}
+
+.themeToggle:hover {
+  color: var(--text-primary);
+}
+
+.ctaBtn {
+  background: linear-gradient(135deg, #2563EB, #0EA5E9);
+  border: none;
+}
+
+.burger {
+  display: none;
+}
+
+.drawer {
+  background: var(--surface);
+}
+
+.mobileLink {
+  display: block;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.mobileLink:hover {
+  color: var(--text-primary);
+  background: var(--border);
+}
+
+.mobileLinkActive {
+  color: var(--mantine-color-brand-6) !important;
+  background: var(--glow-blue);
+}
+
+@media (max-width: 768px) {
+  .desktopNav {
+    display: none;
+  }
+  .ctaBtn {
+    display: none;
+  }
+  .burger {
+    display: flex;
+  }
+}

@@ -1,0 +1,28 @@
+.section {
+  padding: 6rem 0;
+  background: var(--page-bg);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  height: 100%;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.card:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  transform: translateY(-4px);
+}
+
+.quote {
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-style: italic;
+}
+
+.name {
+  color: var(--text-primary);
+}

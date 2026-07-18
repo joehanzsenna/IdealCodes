@@ -1,0 +1,11 @@
+.hero { background:var(--page-bg); padding:8rem 0 4rem; border-bottom:1px solid var(--border); }
+.eyebrow { display:inline-block; text-transform:uppercase; letter-spacing:0.1em; color:var(--mantine-color-cyan-4); margin-bottom:1rem; font-size:0.75rem; }
+.title { font-size:clamp(2rem,5vw,3rem); color:var(--text-primary); margin-bottom:1rem; }
+.sub { max-width:500px; line-height:1.7; }
+.section { padding:4rem 0 6rem; background:var(--page-bg); }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; height:100%; transition:transform 0.25s,border-color 0.25s; }
+.card:hover { transform:translateY(-5px); border-color:rgba(37,99,235,0.3); }
+.cardTop { padding:2rem 1.5rem 1rem; }
+.cardBody { padding:1.25rem 1.5rem 1.5rem; }
+.postTitle { font-size:1rem; color:var(--text-primary); line-height:1.4; }
+.excerpt { line-height:1.65; color:var(--text-muted); }
