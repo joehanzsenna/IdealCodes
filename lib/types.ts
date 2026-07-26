@@ -15,6 +15,8 @@ export interface Project {
   tech: string[];
   liveUrl?: string;
   color: string;
+  video?: string;
+  poster?: string;
 }
 
 export interface Testimonial {
