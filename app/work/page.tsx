@@ -30,7 +30,7 @@ export default function WorkPage() {
         <Container size="xl">
           <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
             {projects.map((project, i) => (
-              <AnimatedSection key={project.id} delay={i * 0.1}>
+              <AnimatedSection key={project.id} delay={i * 0.1} className={classes.cardWrap}>
                 <ProjectCard project={project} />
               </AnimatedSection>
             ))}

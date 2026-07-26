@@ -18,3 +18,4 @@
 }
 .sub { max-width: 580px; line-height: 1.7; }
 .section { padding: 4rem 0 6rem; background: var(--page-bg); }
+.cardWrap { height: 100%; }

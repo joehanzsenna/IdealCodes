@@ -30,8 +30,8 @@ export function Portfolio() {
           </Group>
         </AnimatedSection>
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
-          {projects.map((project, i) => (
-            <AnimatedSection key={project.id} delay={i * 0.1}>
+          {projects.slice(0, 6).map((project, i) => (
+            <AnimatedSection key={project.id} delay={i * 0.1} className={classes.cardWrap}>
               <ProjectCard project={project} />
             </AnimatedSection>
           ))}

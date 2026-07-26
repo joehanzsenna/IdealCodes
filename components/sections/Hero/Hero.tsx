@@ -15,12 +15,20 @@ const marqueeBadges = Array.from({ length: 5 }).flatMap(() => techBadges);
 // Video slides shown in the hero showcase
 const videoSlides = [
   {
-    label: 'ecommerce-demo.mp4',
-    src: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4',
+    label: 'Forever E-Commerce Website',
+    src: 'https://res.cloudinary.com/dnd3am4dm/video/upload/v1781224383/Forever-Ecommerce-Video_rsnwqp.mp4',
   },
   {
-    label: 'brand-showcase.mp4',
-    src: 'https://test-videos.co.uk/vids/jellyfish/mp4/h264/360/Jellyfish_360_10s_1MB.mp4',
+    label: 'Resume Builder Website',
+    src: 'https://res.cloudinary.com/dnd3am4dm/video/upload/v1781226485/Resume-Builder-Video_egiyfg.mp4',
+  },
+  {
+    label: 'Stream Battle Experience',
+    src: 'https://res.cloudinary.com/dnd3am4dm/video/upload/v1781224505/Stream-Battle-Experience_j8vtwg.mp4',
+  },
+  {
+    label: 'The Movies Website',
+    src: 'https://res.cloudinary.com/dnd3am4dm/video/upload/v1780881577/Movies-Website.mp4',
   },
 ];
 
