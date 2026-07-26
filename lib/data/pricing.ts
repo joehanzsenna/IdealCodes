@@ -4,7 +4,7 @@ export const pricingTiers: PricingTier[] = [
   {
     id: 'starter',
     name: 'Starter',
-    usd: '$800',
+    usd: '$900',
     ngn: '₦600,000',
     description: 'Perfect for personal brands, portfolios, and small businesses getting their first professional website.',
     features: [
