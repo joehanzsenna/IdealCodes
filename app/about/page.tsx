@@ -6,14 +6,14 @@ import classes from './about.module.css';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'IdealCodes — who we are, how we work, and why we build websites that grow businesses.',
+  description: 'IdealCodes, who we are, how we work, and why we build websites that grow businesses.',
 };
 
 const techStack = ['Next.js', 'TypeScript', 'React', 'Supabase', 'Firebase', 'Fastify', 'Prisma', 'PostgreSQL', 'Tailwind', 'Mantine UI'];
 const values = [
   { title: 'Quality over quantity', desc: 'We take on a limited number of projects so every website gets our full attention.' },
   { title: 'Communication first', desc: 'You get regular updates. You always know where your project is. No radio silence.' },
-  { title: 'Built to last', desc: 'Every site is coded to modern standards — fast, secure, and easy to maintain long term.' },
+  { title: 'Built to last', desc: 'Every site is coded to modern standards, fast, secure, and easy to maintain long term.' },
   { title: 'Results-driven', desc: 'A beautiful website that doesn\'t convert is just an expensive art project. We build for outcomes.' },
 ];
 
@@ -39,7 +39,7 @@ export default function AboutPage() {
                 <Title order={2} className={classes.h2} mb="lg">Who we are</Title>
                 <Stack gap="md">
                   <Text c="dimmed" style={{ lineHeight: 1.8 }}>
-                    IdealCodes is a Lagos-based web development agency founded by Jonathan Edison — a full-stack developer 
+                    IdealCodes is a Lagos-based web development agency founded by Jonathan Edison, a full-stack developer 
                     with a mission to help African businesses and brands establish a powerful, credible online presence.
                   </Text>
                   <Text c="dimmed" style={{ lineHeight: 1.8 }}>
@@ -48,7 +48,7 @@ export default function AboutPage() {
                   </Text>
                   <Text c="dimmed" style={{ lineHeight: 1.8 }}>
                     Whether you need an e-commerce store, a personal brand site, or want to fix an existing website 
-                    that isn&apos;t converting — IdealCodes has you covered.
+                    that isn&apos;t converting, IdealCodes has you covered.
                   </Text>
                 </Stack>
 

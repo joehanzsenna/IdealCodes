@@ -8,7 +8,7 @@ import classes from './work.module.css';
 
 export const metadata: Metadata = {
   title: 'Our Work',
-  description: 'Projects built by IdealCodes — e-commerce stores, booking platforms, corporate websites, and more.',
+  description: 'Projects built by IdealCodes, e-commerce stores, booking platforms, corporate websites, and more.',
 };
 
 export default function WorkPage() {

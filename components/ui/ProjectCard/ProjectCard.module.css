@@ -16,7 +16,7 @@
 }
 
 .visual {
-  height: 180px;
+  height: 220px;
   position: relative;
   overflow: hidden;
 }
@@ -133,7 +133,7 @@
   transform: scale(1);
 }
 
-/* Touch devices can't hover — keep the play affordance visible */
+/* Touch devices can't hover, so keep the play affordance visible */
 @media (hover: none) {
   .playIcon {
     opacity: 0.92;

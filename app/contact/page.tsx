@@ -20,10 +20,10 @@ export default function ContactPage() {
     const msg = encodeURIComponent(
       `Hi IdealCodes! My name is ${values.name}.\n\nService: ${values.service || 'Not specified'}\nBudget: ${values.budget || 'Not specified'}\n\n${values.message}\n\nEmail: ${values.email}`
     );
-    window.open(`https://wa.me/2349021848847?text=${msg}`, '_blank');
+    window.open(`https://wa.me/2349056644642?text=${msg}`, '_blank');
     notifications.show({
       title: 'Opening WhatsApp',
-      message: 'Your message has been pre-filled — just hit send!',
+      message: 'Your message has been pre-filled, just hit send!',
       icon: <IconCheck size={16} />,
       color: 'green',
     });
@@ -50,8 +50,8 @@ export default function ContactPage() {
             <AnimatedSection>
               <Box component="form" onSubmit={form.onSubmit(handleSubmit)}>
                 <Stack gap="md">
-                  <TextInput label="Your name" placeholder="Emeka Okafor" required size="md" {...form.getInputProps('name')} />
-                  <TextInput label="Email address" placeholder="emeka@company.com" required size="md" type="email" {...form.getInputProps('email')} />
+                  <TextInput label="Your name" placeholder="Your Full Name" required size="md" {...form.getInputProps('name')} />
+                  <TextInput label="Email address" placeholder="email@company.com" required size="md" type="email" {...form.getInputProps('email')} />
                   <Select
                     label="Service needed"
                     placeholder="What can we help you with?"
@@ -90,7 +90,7 @@ export default function ContactPage() {
                   <Box>
                     <Text fw={600} className={classes.contactTitle}>WhatsApp (fastest)</Text>
                     <Text size="sm" c="dimmed" mb="xs">Message us directly for a quick reply</Text>
-                    <a href="https://wa.me/2349021848847" target="_blank" rel="noopener noreferrer" className={classes.contactLink}>+234 902 184 8847</a>
+                    <a href="https://wa.me/2349056644642" target="_blank" rel="noopener noreferrer" className={classes.contactLink}>+234 905 664 4642</a>
                   </Box>
                 </Box>
                 <Box className={classes.contactCard}>

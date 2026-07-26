@@ -47,7 +47,7 @@ export default function BlogPage() {
             <Text size="xs" fw={600} className={classes.eyebrow}>IdealCodes Blog</Text>
             <Title order={1} className={classes.title}>Insights for growing businesses</Title>
             <Text size="xl" c="dimmed" className={classes.sub}>
-              Web development, SEO, and digital strategy — written clearly, without the jargon.
+              Web development, SEO, and digital strategy, written clearly, without the jargon.
             </Text>
           </AnimatedSection>
         </Container>

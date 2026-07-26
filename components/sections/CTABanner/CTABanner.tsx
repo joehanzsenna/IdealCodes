@@ -30,7 +30,7 @@ export function CTABanner() {
               </Button>
               <Button
                 component="a"
-                href="https://wa.me/2349021848847?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20website%20project"
+                href="https://wa.me/2349056644642?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20website%20project"
                 target="_blank"
                 rel="noopener noreferrer"
                 size="xl"

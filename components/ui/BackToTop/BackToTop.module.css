@@ -1,0 +1,43 @@
+.fab {
+  position: fixed !important;
+  bottom: 96px;
+  right: 28px;
+  left: auto;
+  top: auto;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
+  background: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  /* Hidden until scrolled */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: transform 0.25s ease, box-shadow 0.2s ease,
+    opacity 0.25s ease, visibility 0.25s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.visible {
+  opacity: 0.5;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.fab:hover {
+  opacity: 1;
+  transform: translateY(-2px) scale(1.06);
+  border-color: var(--mantine-color-brand-6);
+  color: var(--mantine-color-brand-6);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.32);
+}
+
+@media (max-width: 48em) {
+  .fab {
+    bottom: 88px;
+    right: 20px;
+  }
+}

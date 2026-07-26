@@ -14,7 +14,7 @@ export function ServicesSection() {
           <SectionHeader
             eyebrow="What We Build"
             title="Services built for growing businesses"
-            subtitle="From your first website to a full digital overhaul — we cover everything your brand needs to thrive online."
+            subtitle="From your first website to a full digital overhaul, we cover everything your brand needs to thrive online."
             centered
           />
         </AnimatedSection>

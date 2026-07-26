@@ -4,7 +4,7 @@ export const services: Service[] = [
   {
     id: 'ecommerce',
     title: 'E-Commerce Store',
-    description: 'Full-featured online stores that turn browsers into buyers — payment integration, inventory management, and mobile-first checkout.',
+    description: 'Full-featured online stores that turn browsers into buyers, payment integration, inventory management, and mobile-first checkout.',
     icon: 'ShoppingCart',
     features: ['Paystack / Flutterwave', 'Product management', 'Order tracking', 'Mobile checkout'],
   },
@@ -39,14 +39,14 @@ export const services: Service[] = [
   {
     id: 'blog',
     title: 'Blog & Events Site',
-    description: 'Content-first websites for publishers, bloggers, and event organisers — built with SEO and audience growth in mind.',
+    description: 'Content-first websites for publishers, bloggers, and event organisers, built with SEO and audience growth in mind.',
     icon: 'FileText',
     features: ['CMS integration', 'Categories & tags', 'Newsletter opt-in', 'Event listings'],
   },
   {
     id: 'audit',
     title: 'Website Audit & Optimisation',
-    description: 'Already have a site that isn\'t converting? We find exactly what\'s broken and fix it — from speed to SEO to conversions.',
+    description: 'Already have a site that isn\'t converting? We find exactly what\'s broken and fix it, from speed to SEO to conversions.',
     icon: 'Search',
     features: ['Full SEO audit', 'Core Web Vitals fix', 'Conversion analysis', 'Analytics setup'],
     highlight: true,

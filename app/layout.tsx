@@ -8,10 +8,11 @@ import { Providers } from './providers';
 import { Header } from '@/components/layout/Header/Header';
 import { Footer } from '@/components/layout/Footer/Footer';
 import { WhatsAppFAB } from '@/components/ui/WhatsAppFAB/WhatsAppFAB';
+import { BackToTop } from '@/components/ui/BackToTop/BackToTop';
 
 export const metadata: Metadata = {
   title: {
-    default: 'IdealCodes — Professional Website Development',
+    default: 'IdealCodes, Professional Website Development',
     template: '%s | IdealCodes',
   },
   description:
@@ -24,14 +25,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'IdealCodes',
-    title: 'IdealCodes — Professional Website Development',
+    title: 'IdealCodes, Professional Website Development',
     description: 'We build websites that grow businesses. Fast, responsive, and built to convert.',
     url: 'https://idealcodes.tech',
     images: [{ url: '/images/logo.jpeg', alt: 'IdealCodes logo' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IdealCodes — Professional Website Development',
+    title: 'IdealCodes, Professional Website Development',
     description: 'We build websites that grow businesses. Fast, responsive, and built to convert.',
     images: ['/images/logo.jpeg'],
   },
@@ -53,6 +54,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <WhatsAppFAB />
+          <BackToTop />
         </Providers>
       </body>
     </html>

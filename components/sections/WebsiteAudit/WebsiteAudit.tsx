@@ -27,7 +27,7 @@ export function WebsiteAudit() {
               <Text size="lg" className={classes.body}>
                 Already have a website that&apos;s not bringing in business? We audit it,
                 fix what&apos;s broken, and turn it into a conversion engine.
-                From slow load times to poor SEO and outdated design — we identify
+                From slow load times to poor SEO and outdated design, we identify
                 exactly what&apos;s costing you customers and rebuild what needs rebuilding.
               </Text>
               <Button

@@ -18,7 +18,7 @@ const navLinks = [
   { label: 'Work', href: '/work' },
   { label: 'About', href: '/about' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Blog', href: '/blog' },
+  // { label: 'Blog', href: '/blog' }, // Hidden for now — re-enable when the blog is ready
 ];
 
 export function Header() {

@@ -93,7 +93,7 @@ export function Hero() {
       <div className={classes.grid} aria-hidden />
       <Container size="xl" className={classes.inner}>
         <SimpleGrid cols={{ base: 1, md: 2 }} spacing="4rem" className={classes.grid2col}>
-          {/* Left — text */}
+          {/* Left: text */}
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
@@ -129,7 +129,7 @@ export function Hero() {
               </Button>
               <Button
                 component="a"
-                href="https://wa.me/2349021848847?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote"
+                href="https://wa.me/2349056644642?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote"
                 target="_blank"
                 rel="noopener noreferrer"
                 size="lg"
@@ -143,7 +143,7 @@ export function Hero() {
 
           </motion.div>
 
-          {/* Right — rotating showcase (code window + videos) */}
+          {/* Right: rotating showcase (code window + videos) */}
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             animate={{ opacity: 1, x: 0 }}
@@ -151,7 +151,7 @@ export function Hero() {
             className={classes.visualCol}
           >
             <Box className={classes.mediaStack} ref={stackRef}>
-              {/* Slide 0 — code window */}
+              {/* Slide 0: code window */}
               <div
                 className={`${classes.slide} ${active === 0 ? classes.slideActive : ''}`}
                 aria-hidden={active !== 0}

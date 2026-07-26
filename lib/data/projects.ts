@@ -6,7 +6,7 @@ export const projects: Project[] = [
     id: 'movies-website',
     title: 'The Movies Website',
     description:
-      'A movie discovery platform where users browse trending titles, watch trailers, search by genre, and build a personal watchlist — all powered by a live movie database.',
+      'A movie discovery platform where users browse trending titles, watch trailers, search by genre, and build a personal watchlist, all powered by a live movie database.',
     category: 'Entertainment / Streaming',
     tech: ['Next.js', 'TypeScript', 'TMDB API', 'Tailwind CSS'],
     liveUrl: '#',
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     id: 'resume-builder',
     title: 'Resume Builder',
     description:
-      'A resume-building tool that lets users craft, customise, and download professional CVs from clean templates — with a live preview that updates as they type.',
+      'A resume-building tool that lets users craft, customise, and download professional CVs from clean templates, with a live preview that updates as they type.',
     category: 'SaaS / Tool',
     tech: ['React', 'TypeScript', 'Tailwind CSS'],
     liveUrl: '#',
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     video: 'https://res.cloudinary.com/dnd3am4dm/video/upload/v1781226485/Resume-Builder-Video_egiyfg.mp4',
   },
   {
-    // Placeholder — update with a real project (add a `video` to show a demo reel).
+    // Placeholder: update with a real project (add a `video` to show a demo reel).
     id: 'project-five',
     title: 'Corporate Website',
     description:
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     color: '#0EA5E9',
   },
   {
-    // Placeholder — update with a real project (add a `video` to show a demo reel).
+    // Placeholder: update with a real project (add a `video` to show a demo reel).
     id: 'project-six',
     title: 'Personal Brand Site',
     description:

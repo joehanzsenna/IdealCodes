@@ -7,7 +7,7 @@ const steps = [
   {
     number: '01',
     title: 'Discover',
-    description: 'We start with a conversation. We learn about your business, goals, target audience, and what you need the website to do. No templates — every project starts fresh.',
+    description: 'We start with a conversation. We learn about your business, goals, target audience, and what you need the website to do. No templates, every project starts fresh.',
   },
   {
     number: '02',
@@ -22,7 +22,7 @@ const steps = [
   {
     number: '04',
     title: 'Launch & Support',
-    description: 'We deploy, test across devices, and hand over everything. Then we stay available — maintenance, updates, and SEO are all ongoing options.',
+    description: 'We deploy, test across devices, and hand over everything. Then we stay available, maintenance, updates, and SEO are all ongoing options.',
   },
 ];
 
@@ -34,7 +34,7 @@ export function Process() {
           <SectionHeader
             eyebrow="How We Work"
             title="From first conversation to live website"
-            subtitle="A clear process with no surprises — you know exactly what happens at every stage."
+            subtitle="A clear process with no surprises, you know exactly what happens at every stage."
             centered
           />
         </AnimatedSection>

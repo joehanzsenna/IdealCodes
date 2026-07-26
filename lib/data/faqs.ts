@@ -7,7 +7,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: 'Can you redesign or fix my existing website?',
-    answer: 'Yes — this is one of our core services. We audit your existing site, identify what\'s hurting your conversions or rankings, and rebuild or optimise what needs fixing.',
+    answer: 'Yes, this is one of our core services. We audit your existing site, identify what\'s hurting your conversions or rankings, and rebuild or optimise what needs fixing.',
   },
   {
     question: 'What\'s included in a standard website build?',
@@ -15,7 +15,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: 'Do you work with clients outside Nigeria?',
-    answer: 'Absolutely. We work with clients across Africa and internationally. All communication happens via WhatsApp, Zoom, or email — whatever works best for you.',
+    answer: 'Absolutely. We work with clients across Africa and internationally. All communication happens via WhatsApp, Zoom, or email, whatever works best for you.',
   },
   {
     question: 'Do you offer payment plans?',
@@ -23,7 +23,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: 'Will my website rank on Google?',
-    answer: 'Every site includes technical SEO foundations — fast load times, mobile optimisation, meta tags, structured data, and a sitemap. Full SEO campaigns (content, keywords, links) are available as an ongoing service.',
+    answer: 'Every site includes technical SEO foundations, fast load times, mobile optimisation, meta tags, structured data, and a sitemap. Full SEO campaigns (content, keywords, links) are available as an ongoing service.',
   },
   {
     question: 'What happens after my website launches?',
@@ -31,6 +31,6 @@ export const faqs: FAQ[] = [
   },
   {
     question: 'Which technologies do you use?',
-    answer: 'Our primary stack is Next.js, TypeScript, React, and Supabase/PostgreSQL. We also use Firebase, Fastify, Prisma, Mantine, and Tailwind — every choice based on what\'s right for the project.',
+    answer: 'Our primary stack is Next.js, TypeScript, React, and Supabase/PostgreSQL. We also use Firebase, Fastify, Prisma, Mantine, and Tailwind, every choice based on what\'s right for the project.',
   },
 ];

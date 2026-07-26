@@ -49,7 +49,7 @@ export function Footer() {
               <a href="https://instagram.com/Ideal_Codes" target="_blank" rel="noopener noreferrer" className={classes.social}>
                 <IconBrandInstagram size={18} />
               </a>
-              <a href="https://wa.me/2349021848847" target="_blank" rel="noopener noreferrer" className={classes.social}>
+              <a href="https://wa.me/2349056644642" target="_blank" rel="noopener noreferrer" className={classes.social}>
                 <IconBrandWhatsapp size={18} />
               </a>
               <a href="mailto:hello@idealcodes.tech" className={classes.social}>
@@ -78,7 +78,7 @@ export function Footer() {
           <Stack gap="sm">
             <Text fw={600} size="sm" className={classes.colTitle}>Get in touch</Text>
             <Text size="sm" c="dimmed">WhatsApp</Text>
-            <a href="https://wa.me/2349021848847" className={classes.contactLink}>+234 902 184 8847</a>
+            <a href="https://wa.me/2349056644642" className={classes.contactLink}>+234 905 664 4642</a>
             <Text size="sm" c="dimmed" mt="xs">Email</Text>
             <a href="mailto:hello@idealcodes.tech" className={classes.contactLink}>hello@idealcodes.tech</a>
             <Text size="sm" c="dimmed" mt="xs">Website</Text>

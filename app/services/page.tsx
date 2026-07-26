@@ -8,7 +8,7 @@ import classes from './services.module.css';
 
 export const metadata: Metadata = {
   title: 'Services',
-  description: 'Professional web development services — e-commerce, corporate, personal brand, real estate, portfolio, blog, and website audit & optimisation.',
+  description: 'Professional web development services, e-commerce, corporate, personal brand, real estate, portfolio, blog, and website audit & optimisation.',
 };
 
 export default function ServicesPage() {
@@ -22,7 +22,7 @@ export default function ServicesPage() {
               Every kind of website your business needs
             </Title>
             <Text size="xl" c="dimmed" className={classes.sub}>
-              From a simple portfolio to a full e-commerce platform — we build it right, the first time.
+              From a simple portfolio to a full e-commerce platform, we build it right, the first time.
               And if you already have a site that isn&apos;t working, we fix that too.
             </Text>
           </AnimatedSection>
