@@ -50,10 +50,6 @@
   color: var(--mantine-color-cyan-4);
 }
 
-.desktopNav {
-  display: flex;
-}
-
 .navLink {
   text-decoration: none;
   font-size: 0.875rem;
@@ -86,10 +82,6 @@
   border: none;
 }
 
-.burger {
-  display: none;
-}
-
 .drawer {
   background: var(--surface);
 }
@@ -113,16 +105,4 @@
 .mobileLinkActive {
   color: var(--mantine-color-brand-6) !important;
   background: var(--glow-blue);
-}
-
-@media (max-width: 768px) {
-  .desktopNav {
-    display: none;
-  }
-  .ctaBtn {
-    display: none;
-  }
-  .burger {
-    display: flex;
-  }
 }

@@ -26,7 +26,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const { setColorScheme } = useMantineColorScheme();
-  const computedColorScheme = useComputedColorScheme('dark');
+  const computedColorScheme = useComputedColorScheme('dark', { getInitialValueInEffect: true });
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -56,7 +56,7 @@ export function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <Group gap="xs" className={classes.desktopNav}>
+        <Group gap="xs" visibleFrom="sm">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -84,15 +84,16 @@ export function Header() {
             href="/contact"
             size="sm"
             className={classes.ctaBtn}
+            visibleFrom="sm"
           >
             Get a Quote
           </Button>
           <Burger
             opened={opened}
             onClick={toggle}
-            className={classes.burger}
             size="sm"
             aria-label="Toggle menu"
+            hiddenFrom="sm"
           />
         </Group>
       </Container>

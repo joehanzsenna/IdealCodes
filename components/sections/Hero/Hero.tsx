@@ -1,11 +1,31 @@
 'use client';
+import { useState, useEffect, useRef } from 'react';
 import { Container, Title, Text, Button, Group, Badge, Box, SimpleGrid } from '@mantine/core';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { IconArrowRight, IconBrandWhatsapp } from '@tabler/icons-react';
 import classes from './Hero.module.css';
 
-const techBadges = ['Next.js', 'TypeScript', 'React', 'Supabase', 'Fastify', 'PostgreSQL'];
+const techBadges = [
+  'Next.js', 'TypeScript', 'React', 'Supabase', 'Fastify', 'PostgreSQL',
+  'Node.js', 'Tailwind CSS', 'Mantine', 'Firebase', 'Stripe',
+];
+const marqueeBadges = Array.from({ length: 5 }).flatMap(() => techBadges);
+
+// Video slides shown in the hero showcase
+const videoSlides = [
+  {
+    label: 'ecommerce-demo.mp4',
+    src: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4',
+  },
+  {
+    label: 'brand-showcase.mp4',
+    src: 'https://test-videos.co.uk/vids/jellyfish/mp4/h264/360/Jellyfish_360_10s_1MB.mp4',
+  },
+];
+
+const SLIDE_COUNT = videoSlides.length + 1; // code window + videos
+const SLIDE_INTERVAL = 8000;
 
 const codeLines = [
   { indent: 0, text: 'const idealCodes = {', color: 'var(--text-primary)' },
@@ -20,6 +40,46 @@ const codeLines = [
 ];
 
 export function Hero() {
+  const [active, setActive] = useState(0);
+  const [inView, setInView] = useState(true);
+  const stackRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  // Pause the whole showcase (timer + video decoding) when it's off-screen.
+  useEffect(() => {
+    const el = stackRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-rotate every 5s, only while visible.
+  useEffect(() => {
+    if (!inView) return;
+    const id = setInterval(
+      () => setActive((a) => (a + 1) % SLIDE_COUNT),
+      SLIDE_INTERVAL
+    );
+    return () => clearInterval(id);
+  }, [inView]);
+
+  // Play only the active video (and only while in view); pause the rest.
+  useEffect(() => {
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+      if (inView && active === i + 1) {
+        video.muted = true; // ensure muted so autoplay isn't blocked
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [active, inView]);
+
   return (
     <Box className={classes.hero}>
       <div className={classes.grid} aria-hidden />
@@ -33,7 +93,9 @@ export function Hero() {
             className={classes.textCol}
           >
             <Badge className={classes.eyebrow} mb="lg">
-              🇳🇬 Lagos-based · Worldwide delivery
+              {/* TODO: Decide if to either use Lagos based or not */}
+              {/* Lagos-based · */}
+               Worldwide delivery
             </Badge>
 
             <Title order={1} className={classes.headline}>
@@ -71,59 +133,119 @@ export function Hero() {
               </Button>
             </Group>
 
-            <Group gap="sm" mt="2.5rem" wrap="wrap">
-              {techBadges.map((t, i) => (
-                <motion.div
-                  key={t}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5 + i * 0.08 }}
-                >
-                  <Badge size="sm" variant="outline" className={classes.techBadge}>{t}</Badge>
-                </motion.div>
-              ))}
-            </Group>
           </motion.div>
 
-          {/* Right — code window */}
+          {/* Right — rotating showcase (code window + videos) */}
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
             className={classes.visualCol}
           >
-            <Box className={classes.codeWindow}>
-              <Box className={classes.windowBar}>
-                <span className={classes.dot} style={{ background: '#FF5F57' }} />
-                <span className={classes.dot} style={{ background: '#FEBC2E' }} />
-                <span className={classes.dot} style={{ background: '#28C840' }} />
-                <Text size="xs" c="dimmed" ml="sm">idealcodes.config.ts</Text>
-              </Box>
-              <Box className={classes.codeBody}>
-                {codeLines.map((line, i) => (
-                  <motion.div
+            <Box className={classes.mediaStack} ref={stackRef}>
+              {/* Slide 0 — code window */}
+              <div
+                className={`${classes.slide} ${active === 0 ? classes.slideActive : ''}`}
+                aria-hidden={active !== 0}
+              >
+                <Box className={classes.codeWindow}>
+                  <Box className={classes.windowBar}>
+                    <span className={classes.dot} style={{ background: '#FF5F57' }} />
+                    <span className={classes.dot} style={{ background: '#FEBC2E' }} />
+                    <span className={classes.dot} style={{ background: '#28C840' }} />
+                    <Text size="xs" c="dimmed" ml="sm">idealcodes.config.ts</Text>
+                  </Box>
+                  <Box className={classes.codeBody}>
+                    {codeLines.map((line, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: -8 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.6 + i * 0.07 }}
+                        className={classes.codeLine}
+                      >
+                        <Text
+                          component="span"
+                          className={classes.codeText}
+                          style={{ color: line.color }}
+                        >
+                          {line.text}
+                        </Text>
+                      </motion.div>
+                    ))}
+                  </Box>
+                  <Box className={classes.windowGlow} />
+                </Box>
+              </div>
+
+              {/* Video slides */}
+              {videoSlides.map((v, idx) => (
+                <div
+                  key={v.src}
+                  className={`${classes.slide} ${active === idx + 1 ? classes.slideActive : ''}`}
+                  aria-hidden={active !== idx + 1}
+                >
+                  <Box className={classes.codeWindow}>
+                    <Box className={classes.windowBar}>
+                      <span className={classes.dot} style={{ background: '#FF5F57' }} />
+                      <span className={classes.dot} style={{ background: '#FEBC2E' }} />
+                      <span className={classes.dot} style={{ background: '#28C840' }} />
+                      <Text size="xs" c="dimmed" ml="sm">{v.label}</Text>
+                    </Box>
+                    <video
+                      ref={(el) => {
+                        if (el) el.muted = true;
+                        videoRefs.current[idx] = el;
+                      }}
+                      className={classes.video}
+                      src={v.src}
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      tabIndex={-1}
+                    />
+                  </Box>
+                </div>
+              ))}
+
+              {/* Glow accent (shared, sits behind the window) */}
+              <Box className={classes.stackGlow} />
+
+              {/* Slide indicators */}
+              <div className={classes.slideDots}>
+                {Array.from({ length: SLIDE_COUNT }).map((_, i) => (
+                  <button
                     key={i}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6 + i * 0.07 }}
-                    className={classes.codeLine}
-                  >
-                    <Text
-                      component="span"
-                      className={classes.codeText}
-                      style={{ color: line.color }}
-                    >
-                      {line.text}
-                    </Text>
-                  </motion.div>
+                    type="button"
+                    onClick={() => setActive(i)}
+                    className={`${classes.slideDot} ${active === i ? classes.slideDotActive : ''}`}
+                    aria-label={`Show slide ${i + 1}`}
+                    aria-current={active === i}
+                  />
                 ))}
-              </Box>
-              {/* Glow accent */}
-              <Box className={classes.windowGlow} />
+              </div>
             </Box>
           </motion.div>
         </SimpleGrid>
       </Container>
+
+      {/* Full-width tech-stack marquee (left → right, pauses on hover) */}
+      <Box className={classes.marquee} aria-label="Our tech stack">
+        <div className={classes.marqueeTrack}>
+          {[...marqueeBadges, ...marqueeBadges].map((t, i) => (
+            <Badge
+              key={i}
+              size="md"
+              variant="outline"
+              className={`${classes.techBadge} ${classes.marqueeItem}`}
+              aria-hidden={i >= marqueeBadges.length}
+            >
+              {t}
+            </Badge>
+          ))}
+        </div>
+      </Box>
     </Box>
   );
 }
