@@ -4,8 +4,8 @@ export const pricingTiers: PricingTier[] = [
   {
     id: 'starter',
     name: 'Starter',
-    price: '$200',
-    naira: '₦320k',
+    usd: '$800',
+    ngn: '₦600,000',
     description: 'Perfect for personal brands, portfolios, and small businesses getting their first professional website.',
     features: [
       'Up to 5 pages',
@@ -22,9 +22,9 @@ export const pricingTiers: PricingTier[] = [
   {
     id: 'professional',
     name: 'Professional',
-    price: '$400',
-    naira: '₦640k',
-    description: 'For businesses that need a complete digital presence — e-commerce, real estate, or a full corporate site.',
+    usd: '$2,500',
+    ngn: '₦1,300,000',
+    description: 'For businesses that need a complete digital presence, e-commerce, real estate, or a full corporate site.',
     features: [
       'Up to 12 pages',
       'E-commerce or booking system',
@@ -41,8 +41,8 @@ export const pricingTiers: PricingTier[] = [
   {
     id: 'enterprise',
     name: 'Enterprise',
-    price: 'Custom',
-    naira: 'Custom',
+    usd: 'Custom',
+    ngn: 'Custom',
     description: 'Complex platforms, custom integrations, and ongoing partnerships. Let\'s talk about what you need.',
     features: [
       'Unlimited pages',

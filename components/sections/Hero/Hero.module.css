@@ -145,7 +145,7 @@
   width: 100%;
   max-width: 720px;
   margin-inline: auto;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 7 / 5;
 }
 
 .slide {
@@ -301,5 +301,9 @@
   }
   .codeWindow {
     max-width: 100%;
+  }
+  /* Taller showcase on mobile so the video has more presence */
+  .mediaStack {
+    aspect-ratio: 4 / 3;
   }
 }

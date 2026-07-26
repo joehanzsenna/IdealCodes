@@ -33,8 +33,8 @@ export interface Testimonial {
 export interface PricingTier {
   id: string;
   name: string;
-  price: string;
-  naira: string;
+  usd: string;
+  ngn: string;
   description: string;
   features: string[];
   cta: string;

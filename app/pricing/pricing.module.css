@@ -13,6 +13,15 @@
 .title { font-size: clamp(2rem, 5vw, 3rem); color: var(--text-primary); margin-bottom: 1rem; }
 .sub { max-width: 500px; margin: 0 auto; line-height: 1.7; }
 .section { padding: 5rem 0 6rem; background: var(--page-bg); }
+/* Equal-height chain + 3D flip on currency switch */
+.cardWrap { height: 100%; }
+.flipPerspective { height: 100%; perspective: 1400px; }
+.flipInner {
+  height: 100%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -28,7 +37,22 @@
 }
 .popularBadge { background: rgba(37,99,235,0.12); color: var(--mantine-color-brand-5); border: 1px solid rgba(37,99,235,0.2); }
 .tierName { text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.75rem; }
-.price { font-size: 2.5rem; color: var(--text-primary); line-height: 1; margin-bottom: 0.25rem; }
+.priceWrap { min-height: 3rem; margin-bottom: 0.75rem; }
+.price { font-size: 2.5rem; color: var(--text-primary); line-height: 1; }
+
+/* Currency switch */
+.switchRoot {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 4px;
+}
+.switchIndicator {
+  background: linear-gradient(135deg, #2563EB, #0EA5E9);
+}
+/* Keep the active label readable on the blue indicator */
+.switchRoot [data-active] {
+  color: #fff;
+}
 .tierDesc { line-height: 1.6; }
 .popularBtn { background: linear-gradient(135deg, #2563EB, #0EA5E9); border: none; }
 .outlineBtn { border-color: var(--border); color: var(--text-muted); }
