@@ -4,16 +4,52 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--page-bg);
+  background: #020617;
   padding-top: 68px;
   position: relative;
   overflow: hidden;
+}
+
+/* Rotating dark video background */
+.bgVideos {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #02061751; /* dark base shows instantly, before any video loads */
+  pointer-events: none;
+}
+
+.bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.bgVideoActive {
+  opacity: 0.3;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0.2) 0%,
+    rgba(2, 6, 23, 0.2) 45%,
+    rgba(2, 6, 23, 0.2) 100%
+  );
 }
 
 /* Subtle dot grid */
 .grid {
   position: absolute;
   inset: 0;
+  z-index: 0;
   background-image:
     radial-gradient(circle, rgba(37, 99, 235, 0.12) 1px, transparent 1px);
   background-size: 48px 48px;
@@ -22,6 +58,8 @@
 }
 
 .inner {
+  position: relative;
+  z-index: 1;
   padding-top: 4rem;
   padding-bottom: 4rem;
   width: 100%;
@@ -47,7 +85,8 @@
   font-size: clamp(2.2rem, 5vw, 3.5rem);
   line-height: 1.1;
   font-weight: 800;
-  color: var(--text-primary);
+  /* Hero sits on a dark video background, so keep text light in both themes */
+  color: #f8fafc;
 }
 
 .highlight {
@@ -58,7 +97,7 @@
 }
 
 .sub {
-  color: var(--text-muted);
+  color: rgba(226, 232, 240, 0.85);
   line-height: 1.7;
   max-width: 480px;
 }
@@ -85,9 +124,9 @@
 }
 
 .techBadge {
-  border-color: var(--border);
-  color: var(--text-muted);
-  font-size: 1.2rem;
+  border: none;
+  color: rgba(226, 232, 240, 0.75);
+  font-size: 1.6rem;
   height: auto;
   padding: 0.4rem 0.85rem;
   line-height: 1.3;
@@ -97,6 +136,7 @@
 /* Full-width infinite marquee */
 .marquee {
   position: relative;
+  z-index: 1;
   width: 100%;
   margin-top: 3.5rem;
   overflow: hidden;
@@ -130,6 +170,10 @@
   .marqueeTrack {
     animation: none;
   }
+  /* No moving background for users who prefer reduced motion */
+  .bgVideo {
+    display: none;
+  }
 }
 
 /* Code window */
@@ -146,6 +190,26 @@
   max-width: 720px;
   margin-inline: auto;
   aspect-ratio: 7 / 5;
+}
+
+/* Whole showcase routes to /work when clicked */
+.mediaStackLink {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.mediaStackLink:hover {
+  transform: translateY(-4px);
+}
+
+.mediaStackLink:hover .codeWindow {
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(37, 99, 235, 0.3);
+}
+
+.mediaStackLink:focus-visible {
+  outline: 2px solid var(--mantine-color-brand-6);
+  outline-offset: 6px;
+  border-radius: 14px;
 }
 
 .slide {

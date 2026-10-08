@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container, Box, Title, Text, SimpleGrid, Group, Badge, Stack } from '@mantine/core';
 import { CTABanner } from '@/components/sections/CTABanner/CTABanner';
 import { AnimatedSection } from '@/components/ui/AnimatedSection/AnimatedSection';
+import { SectionHeader } from '@/components/ui/SectionHeader/SectionHeader';
 import classes from './about.module.css';
 
 export const metadata: Metadata = {
@@ -15,6 +17,19 @@ const values = [
   { title: 'Communication first', desc: 'You get regular updates. You always know where your project is. No radio silence.' },
   { title: 'Built to last', desc: 'Every site is coded to modern standards, fast, secure, and easy to maintain long term.' },
   { title: 'Results-driven', desc: 'A beautiful website that doesn\'t convert is just an expensive art project. We build for outcomes.' },
+];
+
+const galleryImages = [
+  // Hero tile: tall on desktop/tablet, full-width banner on mobile.
+  { src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=75', alt: 'Team collaborating around laptops', sizes: '(max-width: 40em) 100vw, (max-width: 62em) 33vw, 25vw' },
+  { src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=700&q=75', alt: 'Lines of code on a screen', sizes: '(max-width: 40em) 50vw, (max-width: 62em) 33vw, 25vw' },
+  // Wide tile on desktop (spans 2 columns).
+  { src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=75', alt: 'Team discussing a project', sizes: '(max-width: 40em) 50vw, (max-width: 62em) 33vw, 50vw' },
+  { src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=700&q=75', alt: 'Clean modern workspace desk', sizes: '(max-width: 40em) 50vw, (max-width: 62em) 33vw, 25vw' },
+  { src: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=75', alt: 'Designers collaborating on a project', sizes: '(max-width: 40em) 50vw, (max-width: 62em) 33vw, 25vw' },
+  { src: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=75', alt: 'Laptop displaying code', sizes: '(max-width: 40em) 50vw, (max-width: 62em) 33vw, 25vw' },
+  // Full-width banner tile on desktop only.
+  { src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1800&q=70', alt: 'Startup team in a meeting', sizes: '(max-width: 40em) 50vw, (max-width: 62em) 33vw, 100vw' },
 ];
 
 export default function AboutPage() {
@@ -77,6 +92,36 @@ export default function AboutPage() {
           </SimpleGrid>
         </Container>
       </Box>
+
+      <Box className={classes.gallerySection}>
+        <Container size="xl">
+          <AnimatedSection>
+            <SectionHeader
+              eyebrow="Behind the Work"
+              title="A glimpse into how we build"
+            />
+          </AnimatedSection>
+          <AnimatedSection delay={0.1}>
+            <div className={classes.galleryGrid}>
+              {galleryImages.map((img, i) => (
+                <div
+                  key={img.src}
+                  className={`${classes.galleryItem} ${i === 0 ? classes.galleryHero : ''}`}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes={img.sizes}
+                    className={classes.galleryImg}
+                  />
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </Container>
+      </Box>
+
       <CTABanner />
     </>
   );

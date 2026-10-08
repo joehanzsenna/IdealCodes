@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Container, Title, Text, Button, Group, Badge, Box, SimpleGrid } from '@mantine/core';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { IconArrowRight, IconBrandWhatsapp } from '@tabler/icons-react';
 import classes from './Hero.module.css';
@@ -35,6 +36,11 @@ const videoSlides = [
 const SLIDE_COUNT = videoSlides.length + 1; // code window + videos
 const SLIDE_INTERVAL = 8000;
 
+// Reuse the same clips for the dark background so they share the browser cache
+// (no extra distinct downloads). Only one plays at a time, loaded on demand.
+const bgVideos = videoSlides.map((v) => v.src);
+const BG_INTERVAL = 5000;
+
 const codeLines = [
   { indent: 0, text: 'const idealCodes = {', color: 'var(--text-primary)' },
   { indent: 1, text: "  client: 'Your Business',", color: '#22D3EE' },
@@ -48,10 +54,13 @@ const codeLines = [
 ];
 
 export function Hero() {
+  const router = useRouter();
   const [active, setActive] = useState(0);
   const [inView, setInView] = useState(true);
+  const [bgIndex, setBgIndex] = useState(0);
   const stackRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const bgRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   // Pause the whole showcase (timer + video decoding) when it's off-screen.
   useEffect(() => {
@@ -88,8 +97,54 @@ export function Hero() {
     });
   }, [active, inView]);
 
+  // Rotate the background video every 5s, only while the hero is visible
+  // and only if the user hasn't asked for reduced motion.
+  useEffect(() => {
+    if (!inView) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const id = setInterval(
+      () => setBgIndex((b) => (b + 1) % bgVideos.length),
+      BG_INTERVAL
+    );
+    return () => clearInterval(id);
+  }, [inView]);
+
+  // Play only the active background clip; pause (and never load) the rest.
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    bgRefs.current.forEach((video, i) => {
+      if (!video) return;
+      if (!reduce && inView && bgIndex === i) {
+        video.muted = true;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [bgIndex, inView]);
+
   return (
     <Box className={classes.hero}>
+      {/* Rotating dark video background (lazy-loaded, one clip at a time) */}
+      <div className={classes.bgVideos} aria-hidden>
+        {bgVideos.map((src, i) => (
+          <video
+            key={src}
+            ref={(el) => {
+              if (el) el.muted = true;
+              bgRefs.current[i] = el;
+            }}
+            className={`${classes.bgVideo} ${bgIndex === i ? classes.bgVideoActive : ''}`}
+            src={src}
+            muted
+            loop
+            playsInline
+            preload="none"
+            tabIndex={-1}
+          />
+        ))}
+        <div className={classes.bgOverlay} />
+      </div>
       <div className={classes.grid} aria-hidden />
       <Container size="xl" className={classes.inner}>
         <SimpleGrid cols={{ base: 1, md: 2 }} spacing="4rem" className={classes.grid2col}>
@@ -150,7 +205,20 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
             className={classes.visualCol}
           >
-            <Box className={classes.mediaStack} ref={stackRef}>
+            <Box
+              className={`${classes.mediaStack} ${classes.mediaStackLink}`}
+              ref={stackRef}
+              role="link"
+              tabIndex={0}
+              onClick={() => router.push('/work')}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  router.push('/work');
+                }
+              }}
+              aria-label="View our work"
+            >
               {/* Slide 0: code window */}
               <div
                 className={`${classes.slide} ${active === 0 ? classes.slideActive : ''}`}
@@ -208,7 +276,6 @@ export function Hero() {
                       className={classes.video}
                       src={v.src}
                       muted
-                      loop
                       playsInline
                       preload="metadata"
                       tabIndex={-1}
@@ -226,7 +293,10 @@ export function Hero() {
                   <button
                     key={i}
                     type="button"
-                    onClick={() => setActive(i)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActive(i);
+                    }}
                     className={`${classes.slideDot} ${active === i ? classes.slideDotActive : ''}`}
                     aria-label={`Show slide ${i + 1}`}
                     aria-current={active === i}
@@ -239,21 +309,28 @@ export function Hero() {
       </Container>
 
       {/* Full-width tech-stack marquee (left → right, pauses on hover) */}
-      <Box className={classes.marquee} aria-label="Our tech stack">
-        <div className={classes.marqueeTrack}>
-          {[...marqueeBadges, ...marqueeBadges].map((t, i) => (
-            <Badge
-              key={i}
-              size="md"
-              variant="outline"
-              className={`${classes.techBadge} ${classes.marqueeItem}`}
-              aria-hidden={i >= marqueeBadges.length}
-            >
-              {t}
-            </Badge>
-          ))}
-        </div>
-      </Box>
+      <motion.div
+        initial={{ opacity: 0, y: 70 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+      >
+        <Box className={classes.marquee} aria-label="Our tech stack">
+          <div className={classes.marqueeTrack}>
+            {[...marqueeBadges, ...marqueeBadges].map((t, i) => (
+              <Badge
+                key={i}
+                size="md"
+                variant="outline"
+                className={`${classes.techBadge} ${classes.marqueeItem}`}
+                aria-hidden={i >= marqueeBadges.length}
+              >
+                {t}
+              </Badge>
+            ))}
+          </div>
+        </Box>
+      </motion.div>
     </Box>
   );
 }

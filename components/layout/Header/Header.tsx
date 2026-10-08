@@ -24,9 +24,14 @@ const navLinks = [
 export function Header() {
   const [opened, { toggle, close }] = useDisclosure(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('dark', { getInitialValueInEffect: true });
+
+  // Only trust the resolved color scheme after mount, so SSR and the first
+  // client render always show the same icon (prevents hydration mismatch).
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -77,7 +82,7 @@ export function Header() {
             aria-label="Toggle color scheme"
             className={classes.themeToggle}
           >
-            {computedColorScheme === 'dark' ? <IconSun size={18} /> : <IconMoon size={18} />}
+            {mounted && computedColorScheme === 'light' ? <IconMoon size={18} /> : <IconSun size={18} />}
           </ActionIcon>
           <Button
             component={Link}

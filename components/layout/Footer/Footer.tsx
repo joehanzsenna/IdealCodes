@@ -90,7 +90,7 @@ export function Footer() {
 
         <Group justify="space-between" mt="lg" pb="lg">
           <Text size="xs" c="dimmed">© {new Date().getFullYear()} IdealCodes. All rights reserved.</Text>
-          <Text size="xs" c="dimmed">Built with Next.js · Mantine UI</Text>
+          <Text size="xs" c="dimmed">Built by IdeaCodes.</Text>
         </Group>
       </Container>
     </Box>

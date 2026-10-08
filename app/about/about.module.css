@@ -30,3 +30,77 @@
 }
 .valueCard:hover { border-color: var(--mantine-color-brand-6); }
 .valueTitle { color: var(--text-primary); margin-bottom: 0.35rem; }
+
+/* Gallery bento grid */
+.gallerySection {
+  padding: 1rem 0 5rem;
+  background: var(--page-bg);
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 240px 240px 320px;
+  gap: 1.1rem;
+  margin-top: 2.5rem;
+}
+
+.galleryItem {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.galleryImg {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galleryItem:hover .galleryImg {
+  transform: scale(1.05);
+}
+
+/* Last image (full-width banner) reads a little dark, lift it */
+.galleryItem:nth-child(7) .galleryImg {
+  filter: brightness(1.22) saturate(1.05);
+}
+
+/* Bento layout: tall hero + a mix of small, wide, and banner tiles */
+.galleryHero { grid-column: 1; grid-row: 1 / span 2; }
+.galleryItem:nth-child(2) { grid-column: 2; grid-row: 1; }
+.galleryItem:nth-child(3) { grid-column: 3 / span 2; grid-row: 1; }
+.galleryItem:nth-child(4) { grid-column: 2; grid-row: 2; }
+.galleryItem:nth-child(5) { grid-column: 3; grid-row: 2; }
+.galleryItem:nth-child(6) { grid-column: 4; grid-row: 2; }
+.galleryItem:nth-child(7) { grid-column: 1 / -1; grid-row: 3; }
+
+@media (max-width: 62em) {
+  .galleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 190px 190px 280px;
+  }
+  .galleryHero { grid-column: 1; grid-row: 1 / span 3; }
+  .galleryItem:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .galleryItem:nth-child(3) { grid-column: 3; grid-row: 1; }
+  .galleryItem:nth-child(4) { grid-column: 2; grid-row: 2; }
+  .galleryItem:nth-child(5) { grid-column: 3; grid-row: 2; }
+  .galleryItem:nth-child(6) { grid-column: 2; grid-row: 3; }
+  .galleryItem:nth-child(7) { grid-column: 3; grid-row: 3; }
+}
+
+@media (max-width: 40em) {
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 220px 160px 160px 240px;
+    gap: 0.75rem;
+  }
+  .galleryHero { grid-column: 1 / -1; grid-row: 1; }
+  .galleryItem:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .galleryItem:nth-child(3) { grid-column: 2; grid-row: 2; }
+  .galleryItem:nth-child(4) { grid-column: 1; grid-row: 3; }
+  .galleryItem:nth-child(5) { grid-column: 2; grid-row: 3; }
+  .galleryItem:nth-child(6) { grid-column: 1; grid-row: 4; }
+  .galleryItem:nth-child(7) { grid-column: 2; grid-row: 4; }
+}
